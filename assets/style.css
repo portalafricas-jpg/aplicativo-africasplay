@@ -75,12 +75,13 @@ section{padding:64px 0}
 
 /* Chamada final com foto de show */
 .final{background:var(--vermelho);padding:48px 0}
-.cartao-final{border-radius:var(--raio);overflow:hidden;min-height:480px;display:grid;gap:24px;justify-items:center;align-content:center;text-align:center;padding:56px 24px;
+.cartao-final{border-radius:var(--raio);overflow:hidden;min-height:480px;display:grid;grid-template-columns:minmax(0,1fr);gap:24px;justify-items:center;align-content:center;text-align:center;padding:56px 24px;
   background:linear-gradient(rgba(0,0,0,.62),rgba(0,0,0,.55)),url("https://static.wixstatic.com/media/012519_b7cd11eb006f4c0a98ccf4e86398e32a~mv2.webp/v1/fill/w_1400,h_900,al_c,q_80/show.webp") center/cover no-repeat}
 .cartao-final h2{color:#fff}
 .cartao-final p{font-size:20px;font-weight:600;max-width:620px}
 .cartao-final .lojas{justify-content:center}
 .cartao-final .qr{justify-content:center;margin-top:0}
+@media (max-width:420px){.cartao-final{padding:48px 16px}.cartao-final .selo{width:calc((100vw - 96px) / 2)}}
 
 footer{background:var(--grafite);border-top:1px solid var(--borda);padding:40px 0 48px;text-align:center}
 footer .logo{margin:0 auto 24px}
