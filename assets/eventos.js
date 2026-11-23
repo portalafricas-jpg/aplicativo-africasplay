@@ -2,12 +2,16 @@
 (function () {
   var hoje = new Date();
   var h = hoje.getFullYear() + '-' + String(hoje.getMonth() + 1).padStart(2, '0') + '-' + String(hoje.getDate()).padStart(2, '0');
-  document.querySelectorAll('.evento[data-fim]').forEach(function (el) {
+  document.querySelectorAll('.evento').forEach(function (el) {
     var ini = el.getAttribute('data-inicio') || '0000-00-00';
     var fim = el.getAttribute('data-fim') || '9999-99-99';
     if (h < ini || h > fim) { el.style.display = 'none'; }
   });
   // QR code (só aparece em computador, ver CSS)
+  // Se sobrar um cartão sozinho na última linha, ele ocupa a linha inteira
+  var visiveis = [].filter.call(document.querySelectorAll('.evento'), function (e) { return e.style.display !== 'none'; });
+  visiveis.forEach(function (e) { e.classList.remove('largo'); });
+  if (visiveis.length % 2 === 1) { visiveis[visiveis.length - 1].classList.add('largo'); }
   ['qr-code', 'qr-code-2'].forEach(function (id) {
     var alvo = document.getElementById(id);
     if (alvo && window.QRCode) {
