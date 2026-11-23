@@ -28,7 +28,7 @@ p{margin:0}
 .selo.google img{width:114.5%;left:-7.27%;top:-24.4%}
 .selo.apple img{width:108.3%;left:-4.17%;top:-6.18%}
 .lojas{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-@media (max-width:420px){.selo{width:calc(50% - 8px)}.lojas{flex-wrap:nowrap}}
+@media (max-width:420px){.selo{width:calc((100vw - 64px) / 2)}.lojas{flex-wrap:nowrap;gap:16px}}
 
 /* QR code: um só, serve para as duas lojas */
 .qr{display:none;align-items:center;gap:16px;margin-top:24px}
