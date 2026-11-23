@@ -4,6 +4,13 @@
 <meta name="robots" content="noindex">
 <title>Baixe o app Áfricas Play</title>
 <link rel="stylesheet" href="assets/style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1002333698"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-1002333698');
+</script>
 </head><body>
 <div class="wrap" style="padding-top:60px;text-align:center">
 <h1>Baixe o app Áfricas Play</h1>
@@ -21,8 +28,16 @@ var c=m[new URLSearchParams(location.search).get('c')]||m.ssa;
 var play=P+c, apple=A+c+B;
 document.getElementById('play').href=play;
 document.getElementById('apple').href=apple;
+// Conta o clique na loja (conversão "Clique na loja") e só então abre a loja; se o Google demorar, abre mesmo assim.
+function conta(cb){
+  var ok=false;function fim(){if(!ok){ok=true;if(cb)cb();}}
+  try{gtag('event','conversion',{'send_to':'AW-1002333698/hZKnCKfIk74dEILM-d0D','event_callback':fim});}catch(e){}
+  setTimeout(fim,800);
+}
+document.getElementById('play').addEventListener('click',function(){gtag('event','conversion',{'send_to':'AW-1002333698/hZKnCKfIk74dEILM-d0D'});});
+document.getElementById('apple').addEventListener('click',function(){gtag('event','conversion',{'send_to':'AW-1002333698/hZKnCKfIk74dEILM-d0D'});});
 var ua=navigator.userAgent;
-if(/iPhone|iPad|iPod/i.test(ua)){location.replace(apple);}
-else if(/Android/i.test(ua)){location.replace(play);}
+if(/iPhone|iPad|iPod/i.test(ua)){conta(function(){location.replace(apple);});}
+else if(/Android/i.test(ua)){conta(function(){location.replace(play);});}
 </script>
 </body></html>
