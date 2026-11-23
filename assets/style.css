@@ -1,28 +1,65 @@
-:root{--ouro:#FCD116;--preto:#0e0e0e;--cinza:#1b1b1b;--borda:#333;--texto:#f2f2f2;--suave:#bdbdbd}
+:root{--ouro:#FCD116;--preto:#000;--grafite:#1c1c1c;--borda:#2f2f2f;--texto:#f5f5f5;--suave:#c9c9c9;--vermelho:#e8484f}
 *{box-sizing:border-box}
-body{margin:0;background:var(--preto);color:var(--texto);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+body{margin:0;background:var(--preto);color:var(--texto);font-family:'Montserrat',Arial,Helvetica,sans-serif;line-height:1.65}
 a{color:var(--ouro)}
-.wrap{max-width:860px;margin:0 auto;padding:0 16px}
-header.topo{border-bottom:1px solid var(--borda);padding:14px 0}
-header.topo .wrap{display:flex;align-items:center;justify-content:space-between}
-.marca{font-weight:bold;font-size:20px;color:#fff;text-decoration:none}
-.marca span{color:var(--ouro)}
-.hero{padding:40px 0 24px}
-.hero h1{font-size:clamp(28px,6vw,44px);line-height:1.15;margin:0 0 12px}
-.hero p{font-size:18px;color:var(--suave);margin:0}
-.dest{color:var(--ouro);font-weight:bold}
-section{padding:28px 0;border-top:1px solid var(--borda)}
-section h2{font-size:24px;margin:0 0 14px}
-.lojas{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-.btn{display:inline-block;padding:14px 22px;border-radius:8px;background:var(--ouro);color:#111;font-weight:bold;text-decoration:none;font-size:16px}
-.btn.sec{background:#fff}
-.qr{display:none;margin-top:16px;align-items:center;gap:14px;color:var(--suave);font-size:14px}
-.qr .caixa{background:#fff;padding:8px;border-radius:8px;width:max-content}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:800;line-height:1.12}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.dest{color:var(--ouro);font-weight:700}
+
+/* Topo em duas colunas */
+.hero{background:var(--grafite);padding:36px 0 44px}
+.hero .wrap{display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
+.hero h1{font-size:clamp(34px,6vw,54px);color:var(--ouro);margin:0 0 16px}
+.hero p.lead{font-size:18px;margin:0 0 22px}
+.hero .logo{display:block;height:46px;margin:0 0 26px}
+.hero .foto{width:100%;border-radius:22px;display:block;aspect-ratio:4/3;object-fit:cover}
+.baixe{font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:800;margin:0 0 4px;color:#fff}
+.sub{font-size:14px;color:var(--suave);margin:0 0 14px}
+.lojas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.lojas img{height:48px;width:auto;display:block}
+.qr{display:none;align-items:center;gap:12px;margin-top:16px}
+.qr .caixa{background:#fff;padding:7px;border-radius:8px}
+.qr span{font-size:13px;color:var(--suave);max-width:170px}
+@media (min-width:900px){
+  .hero .wrap{grid-template-columns:1.05fr 1fr;gap:48px}
+  .hero .foto{aspect-ratio:1/1.05}
+}
 @media (hover:hover) and (min-width:900px){.qr{display:flex}}
-.evento{background:var(--cinza);border:1px solid var(--borda);border-radius:10px;padding:18px;margin-bottom:14px}
-.evento h3{margin:0 0 4px;font-size:20px}
-.evento .quando{color:var(--ouro);font-size:14px;font-weight:bold;margin:0 0 10px}
-.evento p{margin:0}
-.aviso-rodape{color:var(--suave);font-size:13px}
-footer{border-top:1px solid var(--borda);padding:24px 0 40px;color:var(--suave);font-size:14px}
-footer a{margin-right:14px}
+
+section{padding:46px 0}
+section h2{font-size:clamp(28px,4.5vw,40px);color:var(--ouro);margin:0 0 18px}
+.sobre{background:#000}
+.sobre p{max-width:760px;font-size:18px}
+.faixa{background:var(--ouro);color:#111;text-align:center;padding:26px 20px}
+.faixa p{margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:clamp(20px,3.4vw,28px)}
+
+/* Cartões dos eventos */
+.cartoes{display:grid;grid-template-columns:1fr;gap:20px}
+.evento{background:var(--grafite);border:1px solid var(--borda);border-radius:18px;overflow:hidden}
+.evento .foto{display:none}  /* foto/cartaz só no site (computador) */
+.evento .corpo{padding:20px 22px 24px}
+.evento h3{font-size:24px;color:var(--ouro);margin:0 0 6px}
+.evento .quando{display:inline-block;background:var(--ouro);color:#111;font-weight:800;font-size:13px;padding:5px 12px;border-radius:99px;margin:0 0 14px}
+.evento p{margin:0;color:var(--texto)}
+@media (min-width:900px){
+  .cartoes{grid-template-columns:1fr 1fr;gap:26px}
+  .evento .foto{display:flex;height:210px;align-items:flex-end;padding:18px 22px;font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:30px;color:#fff;background-size:cover;background-position:center}
+  .evento .foto small{display:block;font-family:'Montserrat',Arial,sans-serif;font-size:13px;font-weight:600;color:#fff;opacity:.9}
+  .f1{background-image:linear-gradient(160deg,#0f7a3b 0%,#FCD116 55%,#d62b2b 100%)}
+  .f2{background-image:linear-gradient(160deg,#111 0%,#3a3a3a 45%,#FCD116 130%)}
+  .f3{background-image:linear-gradient(160deg,#1c1c1c 0%,#a31621 70%,#FCD116 130%)}
+  .f4{background-image:linear-gradient(160deg,#000 0%,#3b2a00 60%,#FCD116 140%)}
+}
+
+.final{background:var(--vermelho);color:#111}
+.final .wrap{display:grid;gap:20px;text-align:center}
+.final h2{color:#111;margin:0}
+.final p{margin:0;font-size:18px;font-weight:600}
+.final .lojas{justify-content:center}
+
+footer{background:#000;border-top:1px solid var(--borda);padding:28px 0 44px;color:var(--suave);font-size:14px;text-align:center}
+footer a{margin:0 10px}
+footer .logo{height:34px;margin:0 0 14px}
+.aviso-rodape{font-size:13px;margin:6px 0}
+.btn{display:inline-block;padding:14px 22px;border-radius:10px;background:var(--ouro);color:#111;font-weight:800;text-decoration:none}
+.btn.sec{background:#fff}
