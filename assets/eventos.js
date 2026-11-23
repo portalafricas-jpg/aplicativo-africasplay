@@ -8,9 +8,11 @@
     if (h < ini || h > fim) { el.style.display = 'none'; }
   });
   // QR code (só aparece em computador, ver CSS)
-  var alvo = document.getElementById('qr-code');
-  if (alvo && window.QRCode) {
-    var url = new URL('../baixar.html?c=' + alvo.getAttribute('data-cidade'), window.location.href).href;
-    new QRCode(alvo, { text: url, width: 128, height: 128 });
-  }
+  ['qr-code', 'qr-code-2'].forEach(function (id) {
+    var alvo = document.getElementById(id);
+    if (alvo && window.QRCode) {
+      var url = new URL('../baixar.html?c=' + alvo.getAttribute('data-cidade'), window.location.href).href;
+      new QRCode(alvo, { text: url, width: 128, height: 128 });
+    }
+  });
 })();
