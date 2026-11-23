@@ -1,67 +1,88 @@
-:root{--ouro:#FCD116;--preto:#000;--grafite:#1c1c1c;--borda:#2f2f2f;--texto:#f5f5f5;--suave:#c9c9c9;--vermelho:#e8484f}
-*{box-sizing:border-box}
-body{margin:0;background:var(--preto);color:var(--texto);font-family:'Montserrat',Arial,Helvetica,sans-serif;line-height:1.65}
-a{color:var(--ouro)}
-h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:800;line-height:1.12}
-.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-.dest{color:var(--ouro);font-weight:700}
-
-/* Topo em duas colunas */
-.hero{background:var(--grafite);padding:36px 0 44px}
-.hero .wrap{display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
-.hero h1{font-size:clamp(34px,6vw,54px);color:var(--ouro);margin:0 0 16px}
-.hero p.lead{font-size:18px;margin:0 0 22px}
-.hero .logo{display:block;height:46px;margin:0 0 26px}
-.hero .foto{width:100%;border-radius:22px;display:block;aspect-ratio:4/3;object-fit:cover}
-.baixe{font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:800;margin:0 0 4px;color:#fff}
-.sub{font-size:14px;color:var(--suave);margin:0 0 14px}
-.lojas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-.selo{width:190px;height:56px;object-fit:contain;display:block}
-.qr{display:none;align-items:center;gap:12px;margin-top:16px}
-.qr .caixa{background:#fff;padding:7px;border-radius:8px}
-.qr span{font-size:13px;color:var(--suave);max-width:170px}
-@media (min-width:900px){
-  .hero .wrap{grid-template-columns:1.05fr 1fr;gap:48px}
-  .hero .foto{aspect-ratio:1/1.05}
+/* ===== Sistema de design Áfricas Play (páginas de campanha) =====
+   Fontes: 2 apenas. Títulos = Playfair Display 800. Todo o resto = Montserrat.
+   Escala de texto: h1 56 · h2 40 · h3 26 · lead 20 · corpo 17 · apoio 15 · etiqueta 14
+   Espaçamento: múltiplos de 8. Cantos: 20 (imagens e cartões) e pílula (etiquetas).
+   Cores: preto #000, grafite #1c1c1c, amarelo #FCD116, vermelho #E9484E, branco. */
+:root{
+  --ouro:#FCD116;--preto:#000;--grafite:#1c1c1c;--borda:#2f2f2f;--texto:#fff;--suave:#d0d0d0;--vermelho:#E9484E;
+  --titulo:'Playfair Display',Georgia,serif;--corpo:'Montserrat',Arial,sans-serif;--raio:20px;
 }
+*{box-sizing:border-box}
+body{margin:0;background:var(--preto);color:var(--texto);font-family:var(--corpo);font-size:17px;line-height:1.65}
+a{color:var(--ouro)}
+h1,h2,h3{font-family:var(--titulo);font-weight:800;line-height:1.15;margin:0}
+h1{font-size:clamp(36px,6vw,56px);color:var(--ouro)}
+h2{font-size:clamp(30px,4.5vw,40px);color:var(--ouro)}
+h3{font-size:26px;color:var(--ouro)}
+p{margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+.dest{color:var(--ouro);font-weight:700}
+.lead{font-size:20px}
+.apoio{font-size:15px;color:var(--suave)}
+
+/* Logo e selos: recortados nas bordas transparentes para ficarem alinhados e do mesmo tamanho */
+.logo{display:block;position:relative;overflow:hidden;width:200px;aspect-ratio:479/77}
+.logo img{position:absolute;width:104.4%;left:-1.67%;top:-49.4%}
+.selo{display:block;position:relative;overflow:hidden;width:168px;aspect-ratio:3.36/1;border-radius:8px}
+.selo img{position:absolute;height:auto}
+.selo.google img{width:114.5%;left:-7.27%;top:-24.4%}
+.selo.apple img{width:108.3%;left:-4.17%;top:-6.18%}
+.lojas{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+@media (max-width:420px){.selo{width:calc(50% - 8px)}.lojas{flex-wrap:nowrap}}
+
+/* QR code: um só, serve para as duas lojas */
+.qr{display:none;align-items:center;gap:16px;margin-top:24px}
+.qr .caixa{background:#fff;padding:8px;border-radius:12px;line-height:0}
+.qr span{font-size:18px;font-weight:700;color:#fff;max-width:230px;line-height:1.4}
 @media (hover:hover) and (min-width:900px){.qr{display:flex}}
 
-section{padding:46px 0}
-section h2{font-size:clamp(28px,4.5vw,40px);color:var(--ouro);margin:0 0 18px}
-.sobre{background:#000}
-.sobre p{max-width:760px;font-size:18px}
-.faixa{background:var(--ouro);color:#111;text-align:center;padding:26px 20px}
-.faixa p{margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:clamp(20px,3.4vw,28px)}
+/* Topo */
+.hero{background:var(--grafite);padding:40px 0 56px}
+.hero .wrap{display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
+.hero .texto{display:grid;gap:16px;justify-items:start}
+.hero .logo{margin-bottom:16px}
+.hero .chamada{margin-top:16px}
+.hero .foto{width:100%;display:block;border-radius:var(--raio);aspect-ratio:4/3;object-fit:cover}
+@media (min-width:900px){
+  .hero .wrap{grid-template-columns:1.05fr 1fr;gap:56px}
+  .hero .foto{aspect-ratio:1/1.05}
+}
+
+section{padding:64px 0}
+.sobre p{max-width:760px;font-size:19px}
+.sobre h2{margin-bottom:24px}
+.faixa{background:var(--ouro);color:#111;text-align:center;padding:32px 24px}
+.faixa p{font-family:var(--titulo);font-weight:800;font-size:clamp(22px,3.4vw,30px);line-height:1.25}
 
 /* Cartões dos eventos */
-.cartoes{display:grid;grid-template-columns:1fr;gap:20px}
-.evento{background:var(--grafite);border:1px solid var(--borda);border-radius:18px;overflow:hidden}
-.evento .foto{display:none}  /* foto/cartaz só no site (computador) */
-.evento .corpo{padding:20px 22px 24px}
-.evento h3{font-size:24px;color:var(--ouro);margin:0 0 6px}
-.evento .quando{display:inline-block;background:var(--ouro);color:#111;font-weight:800;font-size:13px;padding:5px 12px;border-radius:99px;margin:0 0 14px}
-.evento p{margin:0;color:var(--texto)}
+#destaques h2{margin-bottom:32px}
+.cartoes{display:grid;grid-template-columns:1fr;gap:24px}
+.evento{background:var(--grafite);border:1px solid var(--borda);border-radius:var(--raio);overflow:hidden}
+.evento .foto{display:none} /* foto/cartaz só no computador */
+.evento .corpo{padding:24px 24px 32px;display:grid;gap:16px;justify-items:start}
+.evento p{font-size:17px}
+.quando{display:inline-block;background:var(--ouro);color:#111;font-weight:800;font-size:14px;line-height:1.4;padding:6px 16px;border-radius:999px}
 @media (min-width:900px){
-  .cartoes{grid-template-columns:1fr 1fr;gap:26px}
-  .evento .foto{display:flex;height:210px;align-items:flex-end;padding:18px 22px;font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:30px;color:#fff;background-size:cover;background-position:center}
-  .evento .foto small{display:block;font-family:'Montserrat',Arial,sans-serif;font-size:13px;font-weight:600;color:#fff;opacity:.9}
+  .cartoes{grid-template-columns:1fr 1fr;gap:32px}
+  .cartoes .evento:last-child:nth-child(odd){grid-column:1/-1}
+  .evento .foto{display:flex;height:200px;align-items:flex-end;padding:24px;font-family:var(--titulo);font-weight:800;font-size:30px;line-height:1.15;color:#fff;background-size:cover;background-position:center}
   .f1{background-image:linear-gradient(160deg,#0f7a3b 0%,#FCD116 55%,#d62b2b 100%)}
   .f2{background-image:linear-gradient(160deg,#111 0%,#3a3a3a 45%,#FCD116 130%)}
   .f3{background-image:linear-gradient(160deg,#1c1c1c 0%,#a31621 70%,#FCD116 130%)}
   .f4{background-image:linear-gradient(160deg,#000 0%,#3b2a00 60%,#FCD116 140%)}
+  .f5{background-image:linear-gradient(160deg,#000 0%,#6b3a00 60%,#FCD116 140%)}
 }
 
-.final{background:var(--vermelho);padding:40px 0}
-.cartao-final{position:relative;border-radius:26px;overflow:hidden;min-height:460px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;padding:48px 24px;color:#fff;
+/* Chamada final com foto de show */
+.final{background:var(--vermelho);padding:48px 0}
+.cartao-final{border-radius:var(--raio);overflow:hidden;min-height:480px;display:grid;gap:24px;justify-items:center;align-content:center;text-align:center;padding:56px 24px;
   background:linear-gradient(rgba(0,0,0,.62),rgba(0,0,0,.55)),url("https://static.wixstatic.com/media/012519_b7cd11eb006f4c0a98ccf4e86398e32a~mv2.webp/v1/fill/w_1400,h_900,al_c,q_80/show.webp") center/cover no-repeat}
-.cartao-final h2{color:#fff;margin:0;font-size:clamp(30px,5vw,46px)}
-.cartao-final p{margin:0;font-size:19px;font-weight:600;max-width:620px}
+.cartao-final h2{color:#fff}
+.cartao-final p{font-size:20px;font-weight:600;max-width:620px}
 .cartao-final .lojas{justify-content:center}
-.cartao-final .qr{justify-content:center}
+.cartao-final .qr{justify-content:center;margin-top:0}
 
-footer{background:#000;border-top:1px solid var(--borda);padding:28px 0 44px;color:var(--suave);font-size:14px;text-align:center}
-footer a{margin:0 10px}
-footer .logo{height:34px;margin:0 0 14px}
-.aviso-rodape{font-size:13px;margin:6px 0}
-.btn{display:inline-block;padding:14px 22px;border-radius:10px;background:var(--ouro);color:#111;font-weight:800;text-decoration:none}
-.btn.sec{background:#fff}
+footer{background:var(--grafite);border-top:1px solid var(--borda);padding:40px 0 48px;text-align:center}
+footer .logo{margin:0 auto 24px}
+footer p{margin:8px 0}
+footer a{margin:0 12px}

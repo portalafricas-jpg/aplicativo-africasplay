@@ -12,7 +12,7 @@
     var alvo = document.getElementById(id);
     if (alvo && window.QRCode) {
       var url = new URL('../baixar.html?c=' + alvo.getAttribute('data-cidade'), window.location.href).href;
-      new QRCode(alvo, { text: url, width: 128, height: 128 });
+      new QRCode(alvo, { text: url, width: 104, height: 104 });
     }
   });
 })();
