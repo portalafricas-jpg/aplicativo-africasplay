@@ -1,0 +1,28 @@
+:root{--ouro:#FCD116;--preto:#0e0e0e;--cinza:#1b1b1b;--borda:#333;--texto:#f2f2f2;--suave:#bdbdbd}
+*{box-sizing:border-box}
+body{margin:0;background:var(--preto);color:var(--texto);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+a{color:var(--ouro)}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px}
+header.topo{border-bottom:1px solid var(--borda);padding:14px 0}
+header.topo .wrap{display:flex;align-items:center;justify-content:space-between}
+.marca{font-weight:bold;font-size:20px;color:#fff;text-decoration:none}
+.marca span{color:var(--ouro)}
+.hero{padding:40px 0 24px}
+.hero h1{font-size:clamp(28px,6vw,44px);line-height:1.15;margin:0 0 12px}
+.hero p{font-size:18px;color:var(--suave);margin:0}
+.dest{color:var(--ouro);font-weight:bold}
+section{padding:28px 0;border-top:1px solid var(--borda)}
+section h2{font-size:24px;margin:0 0 14px}
+.lojas{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-block;padding:14px 22px;border-radius:8px;background:var(--ouro);color:#111;font-weight:bold;text-decoration:none;font-size:16px}
+.btn.sec{background:#fff}
+.qr{display:none;margin-top:16px;align-items:center;gap:14px;color:var(--suave);font-size:14px}
+.qr .caixa{background:#fff;padding:8px;border-radius:8px;width:max-content}
+@media (hover:hover) and (min-width:900px){.qr{display:flex}}
+.evento{background:var(--cinza);border:1px solid var(--borda);border-radius:10px;padding:18px;margin-bottom:14px}
+.evento h3{margin:0 0 4px;font-size:20px}
+.evento .quando{color:var(--ouro);font-size:14px;font-weight:bold;margin:0 0 10px}
+.evento p{margin:0}
+.aviso-rodape{color:var(--suave);font-size:13px}
+footer{border-top:1px solid var(--borda);padding:24px 0 40px;color:var(--suave);font-size:14px}
+footer a{margin-right:14px}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Baixe o app Áfricas Play</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<div class="wrap" style="padding-top:60px;text-align:center">
+<h1>Baixe o app Áfricas Play</h1>
+<p style="color:#bdbdbd">Escolha a loja do seu celular:</p>
+<p><a class="btn" id="play" href="#">Baixar na Google Play (Android)</a></p>
+<p><a class="btn sec" id="apple" href="#">Baixar na App Store (iPhone)</a></p>
+</div>
+<script>
+// Links exatamente como na planilha de calendário de 23/11/2026. Um código por cidade.
+var P='https://play.google.com/store/apps/details?id=br.com.app.gpu2633271.gpuc8cfd42c63ec76c640904e227254c57c&referrer=utm_source%3Dgoogle%26utm_medium%3Dcpc%26utm_campaign%3D';
+var A='https://apps.apple.com/br/app/%C3%A1fricas-play/id6448585492?ct=';
+var B='&pt=119301016&mt=8';
+var m={ssa:'novembro-negro-ssa',sp:'novembro-negro-sp',rj:'novembro-negro-rj'};
+var c=m[new URLSearchParams(location.search).get('c')]||m.ssa;
+var play=P+c, apple=A+c+B;
+document.getElementById('play').href=play;
+document.getElementById('apple').href=apple;
+var ua=navigator.userAgent;
+if(/iPhone|iPad|iPod/i.test(ua)){location.replace(apple);}
+else if(/Android/i.test(ua)){location.replace(play);}
+</script>
+</body></html>
